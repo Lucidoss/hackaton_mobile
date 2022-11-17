@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hackathons
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" routerLink="/home">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Accueil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="hackathon" routerLink="/hackathon">
+        <ion-icon name="people"></ion-icon>
+        <ion-label>Hackathons</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

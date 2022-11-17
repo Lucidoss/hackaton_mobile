@@ -10,6 +10,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'hackathon',
+    loadChildren: () => import('./hackathon/hackathon.module').then( m => m.HackathonPageModule)
   }
 ];
 
