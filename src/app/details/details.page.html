@@ -8,27 +8,72 @@
 </ion-header>
 
 <ion-content class="unselectable">
-  <ion-icon name="happy" slot="end"></ion-icon>
-  <ion-label>
-    <h2>{{hackathon.param1.theme}}</h2>
-    <img src="{{hackathon.image}}">
-    <br>
-    <p><ion-icon name="hackathon-outline"></ion-icon> Description : {{hackathon.param1.description}}</p>
-    <br>
-    <p><ion-icon name="man-outline"></ion-icon> Date début : {{jsontoDate(hackathon.param1.dateDebut.date)}}</p>
-    <br>
-    <p><ion-icon name="people-outline"></ion-icon> Date fin : {{jsontoDate(hackathon.param1.dateFin.date)}}</p>
-    <br>
-    <p><ion-icon name="help-outline"></ion-icon> Heure début : {{hackathon.param1.heureDebut}}</p>
-    <br>
-    <p><ion-icon name="help-outline"></ion-icon> Heure fin : {{hackathon.param1.heureFin}}</p>
-    <br>
-    <p><ion-icon name="help-outline"></ion-icon> Lieu : {{hackathon.param1.lieu}}</p>
-    <br>
-    <p><ion-icon name="help-outline"></ion-icon> Rue : {{hackathon.param1.rue}}</p>
-    <br>
-    <p><ion-icon name="help-outline"></ion-icon> Ville : {{hackathon.param1.ville}}</p>
-    <br>
-    <p><ion-icon name="help-outline"></ion-icon> Nombre de places : {{hackathon.param1.nbPlaces}}</p>
-  </ion-label>
+  <ion-card color="dark">
+    <ion-card-header>
+      <ion-card-title>{{hackathon.param1.theme}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Description :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{hackathon.param1.description}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Date début :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{jsontoDate(hackathon.param1.dateDebut.date)}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Date fin :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{jsontoDate(hackathon.param1.dateFin.date)}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Heure début :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{hackathon.param1.heureDebut}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Heure fin :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{hackathon.param1.heureFin}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Lieu :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{hackathon.param1.lieu}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Rue :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{hackathon.param1.rue}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Ville :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{hackathon.param1.ville}}</ion-card-subtitle>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-subtitle>
+        <ion-icon name="help-circle"></ion-icon>Nombre de place :
+      </ion-card-subtitle>
+      <ion-card-subtitle>{{hackathon.param1.nbPlaces}}</ion-card-subtitle>
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>
