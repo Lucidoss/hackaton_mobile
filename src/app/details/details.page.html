@@ -1,0 +1,34 @@
+<ion-header class="unselectable">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="unselectable">
+  <ion-icon name="happy" slot="end"></ion-icon>
+  <ion-label>
+    <h2>{{hackathon.theme}}</h2>
+    <img src="{{hackathon.image}}">
+    <br>
+    <p><ion-icon name="hackathon-outline"></ion-icon> Description : {{hackathon.description}}</p>
+    <br>
+    <p><ion-icon name="man-outline"></ion-icon> Date début : {{hackathon.dateDebut}}</p>
+    <br>
+    <p><ion-icon name="people-outline"></ion-icon> Date fin : {{hackathon.dateFin}}</p>
+    <br>
+    <p><ion-icon name="help-outline"></ion-icon> Heure début : {{hackathon.heureDebut}}</p>
+    <br>
+    <p><ion-icon name="help-outline"></ion-icon> Heure fin : {{hackathon.heureFin}}</p>
+    <br>
+    <p><ion-icon name="help-outline"></ion-icon> Lieu : {{hackathon.lieu}}</p>
+    <br>
+    <p><ion-icon name="help-outline"></ion-icon> Rue : {{hackathon.rue}}</p>
+    <br>
+    <p><ion-icon name="help-outline"></ion-icon> Ville : {{hackathon.ville}}</p>
+    <br>
+    <p><ion-icon name="help-outline"></ion-icon> Nombre de places : {{hackathon.nbPlaces}}</p>
+  </ion-label>
+</ion-content>

@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'hackathon',
     loadChildren: () => import('./hackathon/hackathon.module').then( m => m.HackathonPageModule)
+  },
+  {
+    path: 'details',
+    loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   }
 ];
 

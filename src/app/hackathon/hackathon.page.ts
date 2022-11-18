@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router} from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-hackathon',
-  templateUrl: './hackathon.page.html',
-  styleUrls: ['./hackathon.page.scss'],
+  templateUrl: 'hackathon.page.html',
+  styleUrls: ['hackathon.page.scss'],
 })
-export class HackathonPage implements OnInit {
+export class HackathonPage {
 
   hackathons:any
   constructor(private http: HttpClient, private router: Router) {
@@ -28,10 +29,20 @@ export class HackathonPage implements OnInit {
 
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
-    return date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear()
+    var realDate = date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear()
+    if ((date.getMonth()+1) < 10) {
+      realDate = date.getDate() + '/' + '0'+(date.getMonth()+1) + '/' + date.getFullYear()
+    }
+    
+    return realDate
   }
 
-  ngOnInit() {
+  displayDetails(item:any) {
+    let navigationExtras: NavigationExtras = {
+      state : {
+        param1: item
+      }
+    }
+    this.router.navigate(['/details'], navigationExtras);
   }
-
 }
