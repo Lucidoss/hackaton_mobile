@@ -39,7 +39,7 @@ export class DetailsPage {
     if ((hour.getMinutes()) < 10) {
       realHour = hour.getHours() + 'h' + '0' + hour.getMinutes()
     } 
-
+    console.log(realHour)
     return realHour
   }
 
