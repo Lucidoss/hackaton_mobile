@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router} from '@angular/router';
 import { NavigationExtras } from '@angular/router';
@@ -15,7 +15,6 @@ export class HackathonPage {
     this.http.get('http://127.0.0.1:8001/api/hackathons')
       .subscribe((data) => {
         this.hackathons = data
-        console.log(data);
     });
   }
   

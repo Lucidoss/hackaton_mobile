@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,7 +15,6 @@ export class DetailsPage {
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()) {
         this.hackathon = this.router.getCurrentNavigation()?.extras.state
-        console.log(this.hackathon.param1)
       }
     })
   }
@@ -39,7 +38,6 @@ export class DetailsPage {
     if ((hour.getMinutes()) < 10) {
       realHour = hour.getHours() + 'h' + '0' + hour.getMinutes()
     } 
-    console.log(realHour)
     return realHour
   }
 
