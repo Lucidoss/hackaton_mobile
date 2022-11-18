@@ -4,8 +4,8 @@ import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-hackathon',
-  templateUrl: './hackathon.page.html',
-  styleUrls: ['./hackathon.page.scss'],
+  templateUrl: 'hackathon.page.html',
+  styleUrls: ['hackathon.page.scss'],
 })
 export class HackathonPage implements OnInit {
 
