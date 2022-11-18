@@ -30,4 +30,17 @@ export class DetailsPage {
     return realDate
   }
 
+  jsontoHour(jsonDate:any) {
+    var hour = new Date(jsonDate)
+    var realHour = hour.getHours() + 'h' + hour.getMinutes()
+    if ((hour.getHours()) < 10) {
+      realHour = '0' + hour.getHours() + 'h' + hour.getMinutes()
+    }
+    if ((hour.getMinutes()) < 10) {
+      realHour = hour.getHours() + 'h' + '0' + hour.getMinutes()
+    } 
+
+    return realHour
+  }
+
 }
