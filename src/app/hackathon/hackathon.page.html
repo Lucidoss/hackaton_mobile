@@ -7,15 +7,31 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-card color="tertiary">
+    <ion-card-header>
+      <ion-card-title>Hackathons</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let hackathon of hackathons">
+          <p>Thème : {{hackathon.theme}}</p>
+          <p>Date début : {{jsontoDate(hackathon.dateDebut.date)}}</p>
+          <p>Date fin : {{jsontoDate(hackathon.dateFin.date)}}</p>
+          <p>Nombre de places : {{hackathon.nbPlaces}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
 
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home" routerLink="/home">
+      <ion-tab-button tab="home" (click)="gotoPageAccueil()">
         <ion-icon name="home"></ion-icon>
         <ion-label>Accueil</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="hackathon" routerLink="/hackathon">
+      <ion-tab-button tab="hackathon" (click)="gotoPageHackathon()">
         <ion-icon name="people"></ion-icon>
         <ion-label>Hackathons</ion-label>
       </ion-tab-button>
