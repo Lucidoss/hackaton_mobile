@@ -14,42 +14,41 @@
     </ion-card-header>
     <ion-card-content>
       <ion-card-subtitle>
-        <ion-icon name="help-circle"></ion-icon>Description :
+        <ion-icon name="help-circle"></ion-icon> Description :
       </ion-card-subtitle>
       <ion-card-subtitle>{{hackathon.param1.description}}</ion-card-subtitle>
     </ion-card-content>
 
     <ion-card-content>
       <ion-card-subtitle>
-        <ion-icon name="help-circle"></ion-icon>Date début :
+        <ion-icon name="calendar"></ion-icon> Horaires :
       </ion-card-subtitle>
-      <ion-card-subtitle>{{jsontoDate(hackathon.param1.dateDebut.date)}}</ion-card-subtitle>
+      <ion-grid [fixed]="true">
+        <ion-row>
+          <ion-col size-sm="3">Date Début</ion-col>
+          <ion-col size-sm="3">Date Fin</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>{{jsontoDate(hackathon.param1.dateDebut.date)}}</ion-col>
+          <ion-col>{{jsontoDate(hackathon.param1.dateFin.date)}}</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid [fixed]="true">
+        <ion-row>
+          <ion-col size-sm="3">Heure Début</ion-col>
+          <ion-col size-sm="3">Heure Fin</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>{{jsontoHour(hackathon.param1.heureDebut.date)}}</ion-col>
+          <ion-col>{{jsontoHour(hackathon.param1.heureFin.date)}}</ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
 
     <ion-card-content>
       <ion-card-subtitle>
-        <ion-icon name="help-circle"></ion-icon>Date fin :
-      </ion-card-subtitle>
-      <ion-card-subtitle>{{jsontoDate(hackathon.param1.dateFin.date)}}</ion-card-subtitle>
-    </ion-card-content>
-
-    <ion-card-content>
-      <ion-card-subtitle>
-        <ion-icon name="help-circle"></ion-icon>Heure début :
-      </ion-card-subtitle>
-      <ion-card-subtitle>{{jsontoHour(hackathon.param1.heureDebut.date)}}</ion-card-subtitle>
-    </ion-card-content>
-
-    <ion-card-content>
-      <ion-card-subtitle>
-        <ion-icon name="help-circle"></ion-icon>Heure fin :
-      </ion-card-subtitle>
-      <ion-card-subtitle>{{jsontoHour(hackathon.param1.heureFin.date)}}</ion-card-subtitle>
-    </ion-card-content>
-
-    <ion-card-content>
-      <ion-card-subtitle>
-        <ion-icon name="help-circle"></ion-icon>Lieu :
+        <ion-icon name="business"></ion-icon> Lieu :
       </ion-card-subtitle>
       <ion-card-subtitle>{{hackathon.param1.lieu}}</ion-card-subtitle>
     </ion-card-content>
@@ -63,14 +62,14 @@
 
     <ion-card-content>
       <ion-card-subtitle>
-        <ion-icon name="help-circle"></ion-icon>Ville :
+        <ion-icon name="business"></ion-icon> Ville :
       </ion-card-subtitle>
       <ion-card-subtitle>{{hackathon.param1.ville}}</ion-card-subtitle>
     </ion-card-content>
 
     <ion-card-content>
       <ion-card-subtitle>
-        <ion-icon name="help-circle"></ion-icon>Nombre de place :
+        <ion-icon name="people"></ion-icon> Nombre de place :
       </ion-card-subtitle>
       <ion-card-subtitle>{{hackathon.param1.nbPlaces}}</ion-card-subtitle>
     </ion-card-content>
