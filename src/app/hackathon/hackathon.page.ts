@@ -10,7 +10,8 @@ import { NavigationExtras } from '@angular/router';
 })
 export class HackathonPage {
 
-  hackathons:any
+  hackathons:any;
+
   constructor(private http: HttpClient, private router: Router) {
     this.http.get('http://127.0.0.1:8001/api/hackathons')
       .subscribe((data) => {
@@ -45,3 +46,4 @@ export class HackathonPage {
     this.router.navigate(['/details'], navigationExtras);
   }
 }
+

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavigationExtras } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,15 +11,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsPage {
 
-  hackathon:any
 
-  constructor(private router: Router, private activeRoute : ActivatedRoute) { 
+
+  hackathon:any
+  ateliers:any
+
+  constructor(private http: HttpClient, private router: Router, private activeRoute : ActivatedRoute) { 
+    this.http.get('http://127.0.0.1:8001/api/ateliers')
+      .subscribe((data) => {
+        this.ateliers = data
+    });
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()) {
         this.hackathon = this.router.getCurrentNavigation()?.extras.state
       }
     })
   }
+
 
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
@@ -41,4 +51,13 @@ export class DetailsPage {
     return realHour
   }
 
+  showAtelier() {
+    console.log("ateliers", this.ateliers)
+    let navigationExtras: NavigationExtras = {
+      state : {
+        param1: this.ateliers
+      }
+    }
+    this.router.navigate(['/atelier'], navigationExtras);
+  }
 }
