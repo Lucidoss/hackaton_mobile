@@ -18,7 +18,7 @@ export class HackathonPage {
         this.hackathons = data
     });
   }
-  
+
   gotoPageAccueil() {
     this.router.navigate(['/home']);
   }
@@ -33,7 +33,7 @@ export class HackathonPage {
     if ((date.getMonth()+1) < 10) {
       realDate = date.getDate() + '/' + '0'+(date.getMonth()+1) + '/' + date.getFullYear()
     }
-    
+
     return realDate
   }
 

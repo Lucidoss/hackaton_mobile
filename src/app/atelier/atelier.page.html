@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Atelier</ion-title>
+    <ion-title>Ateliers</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let atelier of ateliers">
+    <ion-item *ngFor="let atelier of ateliers.param1">
       <ion-label>
-        <div class="item item-divider item-text-wrap" style="white-space: normal;">Nom de l'evenement : {{atelier.param1.nomEvenement}}</div>
+        <div class="item item-divider item-text-wrap" style="white-space: normal;">Nom de l'evenement : {{atelier.nomEvenement}}</div>
         <p style="white-space: normal;">Début de l'atelier : {{jsontoDate(atelier.dateDebut.date)}}</p>
         <p>Fin de l'atelier : {{jsontoDate(atelier.dateFin.date)}}</p>
-        <p>Nombre de participants : {{atelier.param1.nbParticipants}}</p>
+        <p>Nombre de participants : {{atelier.nbPlaces}}</p>
       </ion-label>
     </ion-item>
   </ion-list>

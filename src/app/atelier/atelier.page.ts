@@ -31,7 +31,7 @@ export class AtelierPage {
     if ((date.getMonth()+1) < 10) {
       realDate = date.getDate() + '/' + '0'+(date.getMonth()+1) + '/' + date.getFullYear()
     }
-    
+
     return realDate
   }
 }
