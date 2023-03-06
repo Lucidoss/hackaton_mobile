@@ -1,5 +1,6 @@
 import { Component} from '@angular/core'
 import { Router} from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -38,5 +39,11 @@ export class AtelierPage {
 
   inscrire() {
     console.log('inscrire')
+    let navigationExtras: NavigationExtras = {
+      state : {
+        param1: 'item'
+      }
+    }
+    this.router.navigate(['/formulaire-inscription-atelier'], navigationExtras);
   }
 }

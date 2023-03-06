@@ -10,9 +10,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['details.page.scss'],
 })
 export class DetailsPage {
-
-
-
   hackathon:any
   ateliers:any
 
@@ -28,6 +25,13 @@ export class DetailsPage {
     })
   }
 
+  gotoPageAccueil() {
+    this.router.navigate(['/home']);
+  }
+
+  gotoPageHackathon() {
+    this.router.navigate(['/hackathon']);
+  }
 
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)

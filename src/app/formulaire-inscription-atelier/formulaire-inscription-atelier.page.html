@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulaire d'inscription à un atelier</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-label>
+      <p style="white-space: normal;">Nom : </p>
+      <p>Prénom : </p>
+      <p>Email : </p>
+    </ion-label>
+  </ion-list>
+</ion-content>
+
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" (click)="gotoPageAccueil()">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Accueil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="hackathon" (click)="gotoPageHackathon()">
+        <ion-icon name="people"></ion-icon>
+        <ion-label>Hackathons</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
