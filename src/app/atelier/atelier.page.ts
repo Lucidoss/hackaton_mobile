@@ -25,6 +25,7 @@ export class AtelierPage {
   gotoPageHackathon() {
     this.router.navigate(['/hackathon']);
   }
+
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
     var realDate = date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear()
@@ -33,5 +34,9 @@ export class AtelierPage {
     }
 
     return realDate
+  }
+
+  inscrire() {
+    console.log('inscrire')
   }
 }
