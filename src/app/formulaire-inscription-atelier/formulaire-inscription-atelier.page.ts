@@ -21,4 +21,8 @@ export class FormulaireInscriptionAtelierPage {
   gotoPageHackathon() {
     this.router.navigate(['/hackathon']);
   }
+
+  inscrire() {
+
+  }
 }

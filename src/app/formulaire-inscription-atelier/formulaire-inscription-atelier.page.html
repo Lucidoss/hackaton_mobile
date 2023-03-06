@@ -5,13 +5,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-label>
-      <p style="white-space: normal;">Nom : </p>
-      <p>Prénom : </p>
-      <p>Email : </p>
-    </ion-label>
-  </ion-list>
+<ion-card color="tertiary">
+  <ion-card-header>
+    <ion-card-title>Entrer vos informations d'inscription :</ion-card-title>
+  <br>
+    <ion-card-subtitle>Nom : </ion-card-subtitle><ion-input color="dark"></ion-input>
+    <ion-card-subtitle>Prénom : </ion-card-subtitle><ion-input color="dark"></ion-input>
+    <ion-card-subtitle>Email : </ion-card-subtitle><ion-input color="dark"></ion-input>
+    <ion-card-subtitle (click)="inscrire()">
+      <ion-button fill="outline" color="light" expand="block">Valider l'inscription</ion-button>
+    </ion-card-subtitle>
+  </ion-card-header>
+</ion-card>
 </ion-content>
 
 <ion-toolbar>
