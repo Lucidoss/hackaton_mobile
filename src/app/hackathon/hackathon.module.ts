@@ -8,12 +8,15 @@ import { HackathonPageRoutingModule } from './hackathon-routing.module';
 
 import { HackathonPage } from './hackathon.page';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HackathonPageRoutingModule
+    HackathonPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [HackathonPage]
 })

@@ -9,8 +9,8 @@ import { NavigationExtras } from '@angular/router';
   styleUrls: ['hackathon.page.scss'],
 })
 export class HackathonPage {
-
-  hackathons:any;
+  searchTerm:any
+  hackathons:any
 
   constructor(private http: HttpClient, private router: Router) {
     this.http.get('http://127.0.0.1:8001/api/hackathons')
