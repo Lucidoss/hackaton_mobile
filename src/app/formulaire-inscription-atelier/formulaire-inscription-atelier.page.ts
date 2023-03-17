@@ -31,15 +31,6 @@ export class FormulaireInscriptionAtelierPage {
     })
   }
 
-  gotoPageAccueil() {
-    this.router.navigate(['/home']);
-  }
-
-  gotoPageHackathon() {
-    this.router.navigate(['/hackathon']);
-  }
-
-
   inscrire() {
     this.submitted = true
 
@@ -51,7 +42,6 @@ export class FormulaireInscriptionAtelierPage {
           'Content-Type': 'application/json'
         })
       }).subscribe(data=>{
-        console.log(data)
       })
       this.presentToast()
     }
