@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulaire d'inscription à un atelier</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="myForm" (ngSubmit)="inscrire()" novalidate>
+    <ion-card color="tertiary">
+      <ion-card-header>
+        <ion-card-title>Entrer vos informations d'inscription :</ion-card-title>
+      <br>
+        <ion-input formControlName="nom" color="dark">
+          <ion-card-subtitle>Nom : </ion-card-subtitle>
+        </ion-input>
+        <ion-input formControlName="prenom" color="dark">
+          <ion-card-subtitle>Prénom : </ion-card-subtitle>
+        </ion-input>
+        <ion-input formControlName="email" color="dark">
+          <ion-card-subtitle>Email : </ion-card-subtitle>
+        </ion-input>
+        <ion-card-subtitle>
+          <ion-button type="submit" fill="outline" color="light" expand="block">Valider l'inscription</ion-button>
+        </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </form>
+</ion-content>
+
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" (click)="gotoPageAccueil()">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Accueil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="hackathon" (click)="gotoPageHackathon()">
+        <ion-icon name="people"></ion-icon>
+        <ion-label>Hackathons</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

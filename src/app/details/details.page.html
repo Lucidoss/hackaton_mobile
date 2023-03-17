@@ -78,7 +78,25 @@
       <ion-card-subtitle>
          Voir les ateliers :
       </ion-card-subtitle>
-      <ion-card-subtitle (click)="showAtelier()"><ion-button fill="outline" color="light" expand="block">Ateliers</ion-button></ion-card-subtitle>
+      <ion-card-subtitle (click)="showAtelier()">
+        <ion-button fill="outline" color="light" expand="block">Ateliers</ion-button>
+      </ion-card-subtitle>
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" (click)="gotoPageAccueil()">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Accueil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="hackathon" (click)="gotoPageHackathon()">
+        <ion-icon name="people"></ion-icon>
+        <ion-label>Hackathons</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

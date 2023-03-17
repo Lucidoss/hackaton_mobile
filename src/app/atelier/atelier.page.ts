@@ -1,5 +1,6 @@
 import { Component} from '@angular/core'
 import { Router} from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -25,6 +26,7 @@ export class AtelierPage {
   gotoPageHackathon() {
     this.router.navigate(['/hackathon']);
   }
+
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
     var realDate = date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear()
@@ -33,5 +35,15 @@ export class AtelierPage {
     }
 
     return realDate
+  }
+
+  gotoFormulaireInscriptionAtelier() {
+    console.log('inscrire')
+    let navigationExtras: NavigationExtras = {
+      state : {
+        param1: this.ateliers
+      }
+    }
+    this.router.navigate(['/formulaire-inscription-atelier'], navigationExtras);
   }
 }
