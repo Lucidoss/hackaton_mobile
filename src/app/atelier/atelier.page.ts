@@ -37,11 +37,11 @@ export class AtelierPage {
     return realDate
   }
 
-  inscrire() {
+  gotoFormulaireInscriptionAtelier() {
     console.log('inscrire')
     let navigationExtras: NavigationExtras = {
       state : {
-        param1: 'item'
+        param1: this.ateliers
       }
     }
     this.router.navigate(['/formulaire-inscription-atelier'], navigationExtras);

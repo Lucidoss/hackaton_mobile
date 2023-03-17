@@ -5,18 +5,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<ion-card color="tertiary">
-  <ion-card-header>
-    <ion-card-title>Entrer vos informations d'inscription :</ion-card-title>
-  <br>
-    <ion-card-subtitle>Nom : </ion-card-subtitle><ion-input color="dark"></ion-input>
-    <ion-card-subtitle>Prénom : </ion-card-subtitle><ion-input color="dark"></ion-input>
-    <ion-card-subtitle>Email : </ion-card-subtitle><ion-input color="dark"></ion-input>
-    <ion-card-subtitle (click)="inscrire()">
-      <ion-button fill="outline" color="light" expand="block">Valider l'inscription</ion-button>
-    </ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
+  <form [formGroup]="myForm" (ngSubmit)="inscrire()" novalidate>
+    <ion-card color="tertiary">
+      <ion-card-header>
+        <ion-card-title>Entrer vos informations d'inscription :</ion-card-title>
+      <br>
+        <ion-input formControlName="nom" color="dark">
+          <ion-card-subtitle>Nom : </ion-card-subtitle>
+        </ion-input>
+        <ion-input formControlName="prenom" color="dark">
+          <ion-card-subtitle>Prénom : </ion-card-subtitle>
+        </ion-input>
+        <ion-input formControlName="email" color="dark">
+          <ion-card-subtitle>Email : </ion-card-subtitle>
+        </ion-input>
+        <ion-card-subtitle>
+          <ion-button type="submit" fill="outline" color="light" expand="block">Valider l'inscription</ion-button>
+        </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </form>
 </ion-content>
 
 <ion-toolbar>
