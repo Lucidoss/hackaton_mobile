@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Liste des avis
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let avis of listAvis">
+        <ion-label>
+          <div class="item item-divider item-text-wrap" style="white-space: normal;">Commentaire : {{avis.commentaire}}</div>
+          <p style="white-space: normal;">Par : {{avis.email}}</p>
+        </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

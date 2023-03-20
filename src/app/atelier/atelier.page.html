@@ -13,8 +13,10 @@
         <p>Fin de l'atelier : {{jsontoDate(atelier.dateFin.date)}}</p>
         <p>Nombre de participants : {{atelier.nbPlaces}}</p>
       </ion-label>
-      <ion-card-subtitle (click)="gotoFormulaireInscriptionAtelier()">
-        <ion-button expand="block">S'inscrire</ion-button>
+      <ion-card-subtitle>
+        <ion-button (click)="gotoFormulaireInscriptionAtelier()" expand="block">S'inscrire</ion-button>
+        <ion-button (click)="gotoFormulaireCommentaire(atelier.id)" expand="block">Avis</ion-button>
+        <ion-button (click)="gotoListeAvis(atelier.id)" expand="block">Voir avis</ion-button>
       </ion-card-subtitle>
     </ion-item>
   </ion-list>

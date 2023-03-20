@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Laissez un avis</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="formCommentaire" (ngSubmit)="envoieCommentaire()" novalidate>
+    <ion-card color="tertiary">
+      <ion-card-header>
+        <ion-card-title>Ajouter un commentaire :</ion-card-title>
+      <br>
+        <ion-input formControlName="email" color="dark">
+          <ion-card-subtitle>Email : </ion-card-subtitle>
+        </ion-input>
+        <ion-input formControlName="commentaire" color="dark">
+          <ion-card-subtitle>Commentaire : </ion-card-subtitle>
+        </ion-input>
+        <ion-card-subtitle>
+          <ion-button type="submit" fill="outline" color="light" expand="block">Envoyer l'avis</ion-button>
+        </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </form>
+</ion-content>

@@ -35,6 +35,14 @@ import { HomePage } from './home/home.page';
             path: 'formulaire-inscription-atelier',
             loadChildren: () => import('./formulaire-inscription-atelier/formulaire-inscription-atelier.module').then((m) => m.FormulaireInscriptionAtelierPageModule),
           },
+          {
+            path: 'formulaire-commentaire',
+            loadChildren: () => import('./formulaire-commentaire/formulaire-commentaire.module').then((m) => m.FormulaireCommentairePageModule),
+          },
+          {
+            path: 'liste-avis',
+            loadChildren: () => import('./liste-avis/liste-avis.module').then((m) => m.ListeAvisPageModule),
+          },
         ],
       },
     ]),

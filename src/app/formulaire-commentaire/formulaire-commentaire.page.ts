@@ -6,12 +6,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-formulaire-inscription-atelier',
-  templateUrl: './formulaire-inscription-atelier.page.html',
-  styleUrls: ['./formulaire-inscription-atelier.page.scss'],
+  selector: 'app-formulaire-commentaire',
+  templateUrl: './formulaire-commentaire.page.html',
+  styleUrls: ['./formulaire-commentaire.page.scss'],
 })
-export class FormulaireInscriptionAtelierPage {
-  formAtelier: FormGroup
+export class FormulaireCommentairePage {
+  formCommentaire: FormGroup
   submitted = false
   ateliers: any
 
@@ -22,22 +22,20 @@ export class FormulaireInscriptionAtelierPage {
       }
     })
 
-    this.formAtelier = this.formBuilder.group({
-      nom: ['', [Validators.required]],
+    this.formCommentaire = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
 
-      prenom: ['', [Validators.required]],
-
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]]
+      commentaire: ['', [Validators.required]]
     })
   }
 
-  inscrire() {
+  envoieCommentaire() {
     this.submitted = true
 
-    if (!this.formAtelier.valid) {
+    if (!this.formCommentaire.valid) {
       this.presentToast2()
     } else {
-      this.http.post('http://127.0.0.1:8001/api/atelier/' + this.ateliers.param1.param1[0].id, this.formAtelier.value,{
+      this.http.post('http://127.0.0.1:8001/api/atelier/' + this.ateliers.param1 + '/addCommentaire', this.formCommentaire.value,{
         headers : new HttpHeaders({
           'Content-Type': 'application/json'
         })
@@ -49,7 +47,7 @@ export class FormulaireInscriptionAtelierPage {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'L\'atelier a bien été créé',
+      message: 'Le commentaire a bien été créé',
       duration: 1500,
       icon: 'globe'
     });

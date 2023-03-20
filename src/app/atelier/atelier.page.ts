@@ -9,8 +9,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./atelier.page.scss'],
 })
 export class AtelierPage {
+  ateliers: any
 
-  ateliers:any;
   constructor(private router: Router, private activeRoute : ActivatedRoute) {
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()) {
@@ -36,5 +36,23 @@ export class AtelierPage {
       }
     }
     this.router.navigate(['/formulaire-inscription-atelier'], navigationExtras);
+  }
+
+  gotoFormulaireCommentaire(atelier: any) {
+    let navigationExtras: NavigationExtras = {
+      state : {
+        param1: atelier
+      }
+    }
+    this.router.navigate(['/formulaire-commentaire'], navigationExtras);
+  }
+
+  gotoListeAvis(atelier: any) {
+    let navigationExtras: NavigationExtras = {
+      state : {
+        param1: atelier
+      }
+    }
+    this.router.navigate(['/liste-avis'], navigationExtras);
   }
 }
