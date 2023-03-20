@@ -35,19 +35,22 @@ export class FormulaireInscriptionAtelierPage {
     this.submitted = true
 
     if (!this.formAtelier.valid) {
-      this.presentToast2()
+      this.fieldsToast()
+    } else if (this.ateliers.param2.indexOf(this.formAtelier.value.email) > -1) {
+      this.emailToast()
     } else {
-      this.http.post('http://127.0.0.1:8001/api/atelier/' + this.ateliers.param1.param1[0].id, this.formAtelier.value,{
+      this.http.post('http://127.0.0.1:8001/api/atelier/' + this.ateliers.param1, this.formAtelier.value,{
         headers : new HttpHeaders({
           'Content-Type': 'application/json'
         })
       }).subscribe(data=>{
       })
-      this.presentToast()
+      this.router.navigate(['/home']);
+      this.successToast()
     }
   }
 
-  async presentToast() {
+  async successToast() {
     const toast = await this.toastController.create({
       message: 'L\'atelier a bien été créé',
       duration: 1500,
@@ -57,9 +60,19 @@ export class FormulaireInscriptionAtelierPage {
     await toast.present();
   }
 
-  async presentToast2() {
+  async fieldsToast() {
     const toast = await this.toastController.create({
-      message: 'All fields are required.',
+      message: 'Veuillez remplir tout les champs',
+      duration: 3000,
+      icon: 'globe'
+    });
+
+    await toast.present();
+  }
+
+  async emailToast() {
+    const toast = await this.toastController.create({
+      message: 'Cet email est déjà inscrit',
       duration: 3000,
       icon: 'globe'
     });

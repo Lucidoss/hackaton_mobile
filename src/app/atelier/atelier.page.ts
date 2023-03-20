@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AtelierPage {
   ateliers: any
+  today: any
 
   constructor(private router: Router, private activeRoute : ActivatedRoute) {
     this.activeRoute.queryParams.subscribe(params => {
@@ -17,6 +18,9 @@ export class AtelierPage {
         this.ateliers = this.router.getCurrentNavigation()?.extras.state
       }
     })
+
+    this.today = new Date()
+    this.today = this.jsontoDate(this.today)
   }
 
   jsontoDate(jsonDate:any) {
@@ -29,10 +33,11 @@ export class AtelierPage {
     return realDate
   }
 
-  gotoFormulaireInscriptionAtelier() {
+  gotoFormulaireInscriptionAtelier(atelier: any, email: any) {
     let navigationExtras: NavigationExtras = {
       state : {
-        param1: this.ateliers
+        param1: atelier,
+        param2: email
       }
     }
     this.router.navigate(['/formulaire-inscription-atelier'], navigationExtras);
