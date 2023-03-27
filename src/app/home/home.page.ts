@@ -18,4 +18,7 @@ export class HomePage {
     this.router.navigate(['/hackathon']);
   }
 
+  gotoPageFavoris() {
+    this.router.navigate(['/favoris']);
+  }
 }

@@ -35,7 +35,7 @@
     <ion-card-content>
       <ion-card-subtitle><ion-icon name="arrow-redo-outline"></ion-icon> Martin Frontera</ion-card-subtitle>
       <ion-card-subtitle><ion-icon name="arrow-redo-outline"></ion-icon> Romain Dugas</ion-card-subtitle>
-      <ion-card-subtitle><ion-icon name="arrow-redo-outline"></ion-icon>  Swan Beauchene</ion-card-subtitle>
+      <ion-card-subtitle><ion-icon name="arrow-redo-outline"></ion-icon> Swan Beauchene</ion-card-subtitle>
     </ion-card-content>
   </ion-card>
 
@@ -51,6 +51,10 @@
         <ion-label>Hackathons</ion-label>
       </ion-tab-button>
 
+      <ion-tab-button (click)="gotoPageFavoris()">
+        <ion-icon name="star"></ion-icon>
+        <ion-label>Favoris</ion-label>
+      </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
 </ion-content>

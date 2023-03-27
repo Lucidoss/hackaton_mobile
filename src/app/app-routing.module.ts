@@ -43,6 +43,10 @@ import { HomePage } from './home/home.page';
             path: 'liste-avis',
             loadChildren: () => import('./liste-avis/liste-avis.module').then((m) => m.ListeAvisPageModule),
           },
+          {
+            path: 'favoris',
+            loadChildren: () => import('./favoris/favoris.module').then((m) => m.FavorisPageModule),
+          },
         ],
       },
     ]),
