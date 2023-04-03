@@ -40,7 +40,7 @@ export class AtelierPage {
     })
 
     this.today = new Date()
-    this.today = this.jsontoDate(this.today)
+    this.today = this.stringtoDate(this.today)
   }
 
   ionViewWillEnter() {
@@ -78,6 +78,12 @@ export class AtelierPage {
     }
 
     return realDate
+  }
+
+  stringtoDate(jsonDate:any) {
+    var date = new Date(jsonDate)
+
+    return date
   }
 
   gotoFormulaireInscriptionAtelier(atelier: any, email: any) {
