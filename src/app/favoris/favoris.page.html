@@ -21,7 +21,7 @@
     </ion-item>
 
     <ion-card-subtitle>
-      <ion-button *ngIf="today < jsontoDate(favoris.dateFin.date) && favoris.nbPlacesRestantes != 0" (click)="gotoFormulaireInscriptionAtelier(favoris.id, favoris.email)" expand="block">S'inscrire</ion-button>
+      <ion-button *ngIf="today < stringtoDate(favoris.dateFin.date) && favoris.nbPlacesRestantes != 0" (click)="gotoFormulaireInscriptionAtelier(favoris.id, favoris.email)" expand="block">S'inscrire</ion-button>
       <ion-button (click)="gotoFormulaireCommentaire(favoris.id)" expand="block">Avis</ion-button>
       <ion-button (click)="gotoListeAvis(favoris.id)" expand="block">Voir avis</ion-button>
     </ion-card-subtitle>

@@ -15,7 +15,7 @@ export class FavorisPage {
 
   constructor(private router: Router, private activeRoute : ActivatedRoute, private storage: Storage) {
     this.today = new Date()
-    this.today = this.jsontoDate(this.today)
+    this.today = this.stringtoDate(this.today)
   }
 
   ionViewWillEnter() {
@@ -53,6 +53,12 @@ export class FavorisPage {
     }
 
     return realDate
+  }
+
+  stringtoDate(jsonDate:any) {
+    var date = new Date(jsonDate)
+
+    return date
   }
 
   gotoFormulaireInscriptionAtelier(atelier: any, email: any) {
