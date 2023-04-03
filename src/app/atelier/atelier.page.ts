@@ -13,7 +13,7 @@ export class AtelierPage {
   ateliers: any
   today: any
   favoriteAtelierList: any
-  idFavoriteList: any
+  idFavoriteList: any = []
 
   constructor(private router: Router, private activeRoute : ActivatedRoute, private storage: Storage) {
     this.activeRoute.queryParams.subscribe(params => {
