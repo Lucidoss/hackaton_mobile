@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-title>Ateliers</ion-title>
+  </ion-toolbar>
   <ion-list *ngFor="let atelier of ateliers">
     <ion-item>
         <ion-icon *ngIf="idFavoriteList.includes(atelier.id); else noFavorite" name="star" slot="start" (click)="removeFavorite(atelier)"></ion-icon>

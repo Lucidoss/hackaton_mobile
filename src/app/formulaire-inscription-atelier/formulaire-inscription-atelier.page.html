@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-title>Formulaire d'inscription à un atelier</ion-title>
+  </ion-toolbar>
   <form [formGroup]="formAtelier" (ngSubmit)="inscrire()" novalidate>
     <ion-card color="tertiary">
       <ion-card-header>

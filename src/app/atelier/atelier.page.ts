@@ -41,12 +41,9 @@ export class AtelierPage {
 
     this.today = new Date()
     this.today = this.jsontoDate(this.today)
-
   }
 
   ionViewWillEnter() {
-    //*ngIf="idFavoriteList.includes(atelier.id); else noFavorite"
-
     this.storage.get('favoriteAteliersList').then(val => {
       if (val != null) {
         this.favoriteAtelierList = val
@@ -66,9 +63,18 @@ export class AtelierPage {
 
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
-    var realDate = date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear()
+    var jour: any = date.getDate()
+
+    // Si le jour est inférieur à 10 on ajoute un 0 afin de ne pas avoir 3/05/2023
+    if (date.getDate() < 10) {
+      jour = '0' + date.getDate()
+    }
+
+    var realDate = jour + '/' + (date.getMonth()+1) + '/' + date.getFullYear()
+
+    // Si le mois est inférieur à 10 on ajoute un 0 afin de ne pas avoir 03/5/2023
     if ((date.getMonth()+1) < 10) {
-      realDate = date.getDate() + '/' + '0'+(date.getMonth()+1) + '/' + date.getFullYear()
+      realDate = jour + '/' + '0'+(date.getMonth()+1) + '/' + date.getFullYear()
     }
 
     return realDate

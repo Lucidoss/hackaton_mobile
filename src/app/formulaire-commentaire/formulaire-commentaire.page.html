@@ -1,10 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Laissez un avis</ion-title>
+    <ion-title>Formulaire commentaire</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-title>Formulaire commentaire</ion-title>
+  </ion-toolbar>
   <form [formGroup]="formCommentaire" (ngSubmit)="envoieCommentaire()" novalidate>
     <ion-card color="tertiary">
       <ion-card-header>

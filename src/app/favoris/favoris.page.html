@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-title>Favoris</ion-title>
+  </ion-toolbar>
   <ion-list *ngFor="let favoris of favoriteAtelierList">
     <ion-item>
       <ion-icon name="star" slot="start" (click)="removeFavorite(favoris)"></ion-icon>
