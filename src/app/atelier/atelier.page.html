@@ -5,19 +5,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let atelier of ateliers.param1">
-      <ion-label>
-        <div class="item item-divider item-text-wrap" style="white-space: normal;">Nom de l'evenement : {{atelier.nomEvenement}}</div>
-        <p style="white-space: normal;">Début de l'atelier : {{jsontoDate(atelier.dateDebut.date)}}</p>
-        <p>Fin de l'atelier : {{jsontoDate(atelier.dateFin.date)}}</p>
-        <p>Nombre de places : {{atelier.nbPlacesRestantes}}/{{atelier.nbPlaces}}</p>
-      </ion-label>
-      <ion-card-subtitle>
-        <ion-button *ngIf="today < atelier.dateFin.date && atelier.nbPlacesRestantes != 0" (click)="gotoFormulaireInscriptionAtelier(atelier.id, atelier.email)" expand="block">S'inscrire</ion-button>
-        <ion-button (click)="gotoFormulaireCommentaire(atelier.id)" expand="block">Avis</ion-button>
-        <ion-button (click)="gotoListeAvis(atelier.id)" expand="block">Voir avis</ion-button>
-      </ion-card-subtitle>
+  <ion-list *ngFor="let atelier of ateliers">
+    <ion-item>
+        <ion-icon *ngIf="idFavoriteList.includes(atelier.id); else noFavorite" name="star" slot="start" (click)="removeFavorite(atelier)"></ion-icon>
+        <ng-template #noFavorite>
+          <ion-icon name="star-outline" slot="start" (click)="addFavorite(atelier)"></ion-icon>
+        </ng-template>
+
+        <ion-label>
+          <div class="item item-divider item-text-wrap" style="white-space: normal;">Nom de l'evenement : {{atelier.nomEvenement}}</div>
+          <p style="white-space: normal;">Début de l'atelier : {{jsontoDate(atelier.dateDebut.date)}}</p>
+          <p>Fin de l'atelier : {{jsontoDate(atelier.dateFin.date)}}</p>
+          <p>Nombre de places : {{atelier.nbPlacesRestantes}}/{{atelier.nbPlaces}}</p>
+        </ion-label>
     </ion-item>
+
+    <ion-card-subtitle>
+      <ion-button *ngIf="today < jsontoDate(atelier.dateFin.date) && atelier.nbPlacesRestantes != 0" (click)="gotoFormulaireInscriptionAtelier(atelier.id, atelier.email)" expand="block">S'inscrire</ion-button>
+      <ion-button (click)="gotoFormulaireCommentaire(atelier.id)" expand="block">Avis</ion-button>
+      <ion-button (click)="gotoListeAvis(atelier.id)" expand="block">Voir avis</ion-button>
+    </ion-card-subtitle>
   </ion-list>
 </ion-content>

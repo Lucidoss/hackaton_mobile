@@ -18,11 +18,13 @@ export class DetailsPage {
       if (this.router.getCurrentNavigation()) {
         this.hackathon = this.router.getCurrentNavigation()?.extras.state
       }
-
-      this.http.get('http://127.0.0.1:8001/api/hackathons/' + this.hackathon.param1.id + '/ateliers').subscribe((data) => {
-          this.ateliers = data
-      });
     })
+  }
+  ionViewWillEnter() {
+    // this.http.get('http://127.0.0.1:8001/api/hackathons/' + this.hackathon.param1.id + '/ateliers').subscribe((data) => {
+    //   console.log('data', data)
+    //   this.ateliers = data
+    // });
   }
 
   jsontoDate(jsonDate:any) {
@@ -48,11 +50,15 @@ export class DetailsPage {
   }
 
   showAtelier() {
-    let navigationExtras: NavigationExtras = {
-      state : {
-        param1: this.ateliers
+    this.http.get('http://127.0.0.1:8001/api/hackathons/' + this.hackathon.param1.id + '/ateliers').subscribe((data) => {
+      this.ateliers = data
+
+      let navigationExtras: NavigationExtras = {
+        state : {
+          param1: this.ateliers
+        }
       }
-    }
-    this.router.navigate(['/atelier'], navigationExtras);
+      this.router.navigate(['/atelier'], navigationExtras);
+    });
   }
 }
