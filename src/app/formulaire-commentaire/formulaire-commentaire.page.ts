@@ -23,7 +23,7 @@ export class FormulaireCommentairePage {
     })
 
     this.formCommentaire = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      email: ['', [Validators.required, Validators.pattern(/([a-z]|\.){3,}@[a-z]{3,}\.(com|fr|net)/gm)]],
 
       commentaire: ['', [Validators.required]]
     })
@@ -33,7 +33,7 @@ export class FormulaireCommentairePage {
     this.submitted = true
 
     if (!this.formCommentaire.valid) {
-      this.presentToast2()
+      this.fieldsToast()
     } else {
       this.http.post('http://127.0.0.1:8001/api/atelier/' + this.ateliers.param1 + '/addCommentaire', this.formCommentaire.value,{
         headers : new HttpHeaders({
@@ -41,11 +41,12 @@ export class FormulaireCommentairePage {
         })
       }).subscribe(data=>{
       })
-      this.presentToast()
+      this.router.navigate(['/home']);
+      this.successToast()
     }
   }
 
-  async presentToast() {
+  async successToast() {
     const toast = await this.toastController.create({
       message: 'Le commentaire a bien été créé',
       duration: 1500,
@@ -55,9 +56,9 @@ export class FormulaireCommentairePage {
     await toast.present();
   }
 
-  async presentToast2() {
+  async fieldsToast() {
     const toast = await this.toastController.create({
-      message: 'All fields are required.',
+      message: 'Veuillez remplir tout les champs',
       duration: 3000,
       icon: 'globe'
     });

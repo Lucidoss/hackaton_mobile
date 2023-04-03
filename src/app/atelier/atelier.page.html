@@ -24,12 +24,9 @@
     </ion-item>
 
     <ion-card-subtitle>
-      {{today}}
-      {{jsontoDate(atelier.dateFin.date)}}
-      {{today < stringtoDate(atelier.dateFin.date)}}
       <ion-button *ngIf="today < stringtoDate(atelier.dateFin.date) && atelier.nbPlacesRestantes != 0" (click)="gotoFormulaireInscriptionAtelier(atelier.id, atelier.email)" expand="block">S'inscrire</ion-button>
-      <ion-button (click)="gotoFormulaireCommentaire(atelier.id)" expand="block">Avis</ion-button>
-      <ion-button (click)="gotoListeAvis(atelier.id)" expand="block">Voir avis</ion-button>
+      <ion-button (click)="gotoFormulaireCommentaire(atelier.id)" expand="block">Laisser un avis</ion-button>
+      <ion-button (click)="gotoListeAvis(atelier.id)" expand="block">Voir les avis</ion-button>
     </ion-card-subtitle>
   </ion-list>
 </ion-content>

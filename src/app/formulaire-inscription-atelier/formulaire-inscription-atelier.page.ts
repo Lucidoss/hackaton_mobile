@@ -27,7 +27,7 @@ export class FormulaireInscriptionAtelierPage {
 
       prenom: ['', [Validators.required]],
 
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]]
+      email: ['', [Validators.required, Validators.pattern(/([a-z]|\.){3,}@[a-z]{3,}\.(com|fr|net)/gm)]]
     })
   }
 

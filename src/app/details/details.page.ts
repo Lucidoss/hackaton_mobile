@@ -20,12 +20,6 @@ export class DetailsPage {
       }
     })
   }
-  ionViewWillEnter() {
-    // this.http.get('http://127.0.0.1:8001/api/hackathons/' + this.hackathon.param1.id + '/ateliers').subscribe((data) => {
-    //   console.log('data', data)
-    //   this.ateliers = data
-    // });
-  }
 
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
