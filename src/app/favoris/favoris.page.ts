@@ -3,6 +3,7 @@ import { Router} from '@angular/router';
 import { NavigationExtras } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-favoris',
   templateUrl: './favoris.page.html',
@@ -12,8 +13,9 @@ export class FavorisPage {
   today: any
   favoriteAtelierList: any
   idFavoriteList: any
+  listAvis: any
 
-  constructor(private router: Router, private activeRoute : ActivatedRoute, private storage: Storage) {
+  constructor(private router: Router, private activeRoute : ActivatedRoute, private storage: Storage, private http: HttpClient) {
     this.today = new Date()
     this.today = this.stringtoDate(this.today)
   }
@@ -81,12 +83,16 @@ export class FavorisPage {
   }
 
   gotoListeAvis(atelier: any) {
-    let navigationExtras: NavigationExtras = {
-      state : {
-        param1: atelier
-      }
-    }
-    this.router.navigate(['/liste-avis'], navigationExtras);
+    this.http.get('http://127.0.0.1:8001/api/atelier/' + atelier + '/commentaire').subscribe((data) => {
+        this.listAvis = data
+
+        let navigationExtras: NavigationExtras = {
+          state : {
+            param1: this.listAvis
+          }
+        }
+        this.router.navigate(['/liste-avis'], navigationExtras);
+    });
   }
 
   removeFavorite(atelier: any) {
