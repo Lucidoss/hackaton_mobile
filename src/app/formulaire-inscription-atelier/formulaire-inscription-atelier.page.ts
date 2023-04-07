@@ -52,7 +52,7 @@ export class FormulaireInscriptionAtelierPage {
 
   async successToast() {
     const toast = await this.toastController.create({
-      message: 'L\'atelier a bien été créé',
+      message: 'Inscription réussie',
       duration: 1500,
       icon: 'globe'
     });

@@ -41,7 +41,7 @@ export class FormulaireCommentairePage {
         })
       }).subscribe(data=>{
       })
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home'])
       this.successToast()
     }
   }
@@ -58,7 +58,7 @@ export class FormulaireCommentairePage {
 
   async fieldsToast() {
     const toast = await this.toastController.create({
-      message: 'Veuillez remplir tout les champs',
+      message: 'Champs invalides',
       duration: 3000,
       icon: 'globe'
     });
