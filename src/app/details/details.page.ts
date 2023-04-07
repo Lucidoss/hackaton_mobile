@@ -14,6 +14,7 @@ export class DetailsPage {
   ateliers:any
 
   constructor(private http: HttpClient, private router: Router, private activeRoute : ActivatedRoute) {
+    // Permet de récupérer les paramètres envoyés à cette page (là un hackathon)
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()) {
         this.hackathon = this.router.getCurrentNavigation()?.extras.state
@@ -21,6 +22,7 @@ export class DetailsPage {
     })
   }
 
+  // Permet de transformer le json en date au format 00/00/0000
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
     var jour: any = date.getDate()
@@ -40,18 +42,24 @@ export class DetailsPage {
     return realDate
   }
 
+  // Permet de transformer le json en heure au format 00h00
   jsontoHour(jsonDate:any) {
     var hour = new Date(jsonDate)
     var realHour = hour.getHours() + 'h' + hour.getMinutes()
+
+    // Si l'heure est inférieur à 10 on ajoute un 0 afin de ne pas avoir 0h00
     if ((hour.getHours()) < 10) {
       realHour = '0' + hour.getHours() + 'h' + hour.getMinutes()
     }
+
+    // Si les minutes sont inférieurs à 10 on ajoute un 0 afin de ne pas avoir 00h0
     if ((hour.getMinutes()) < 10) {
       realHour = hour.getHours() + 'h' + '0' + hour.getMinutes()
     }
     return realHour
   }
 
+  // Permet d'aller sur la page correspondant à la route /atelier avec en paramètre les ateliers du hackathon
   showAtelier() {
     this.http.get('http://127.0.0.1:8001/api/hackathons/' + this.hackathon.param1.id + '/ateliers').subscribe((data) => {
       this.ateliers = data

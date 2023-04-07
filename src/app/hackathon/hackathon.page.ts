@@ -22,6 +22,7 @@ export class HackathonPage {
     });
   }
 
+  // Permet de transformer le json en date au format 00/00/0000
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
     var jour: any = date.getDate()
@@ -41,10 +42,11 @@ export class HackathonPage {
     return realDate
   }
 
-  displayDetails(item:any) {
+  // Permet d'aller sur la page correspondant à la route /details avec en paramètre le hackathon
+  displayDetails(hackathon:any) {
     let navigationExtras: NavigationExtras = {
       state : {
-        param1: item
+        param1: hackathon
       }
     }
     this.router.navigate(['/details'], navigationExtras);

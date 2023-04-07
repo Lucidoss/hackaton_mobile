@@ -63,6 +63,7 @@ export class AtelierPage {
     })
   }
 
+  // Permet de transformer le json en date au format 00/00/0000
   jsontoDate(jsonDate:any) {
     var date = new Date(jsonDate)
     var jour: any = date.getDate()
@@ -88,6 +89,7 @@ export class AtelierPage {
     return date
   }
 
+  // Permet d'aller sur la page correspondant à la route /formulaire-inscription-atelier avec en paramètre l'atelier sélectionné et les emails
   gotoFormulaireInscriptionAtelier(atelier: any, email: any) {
     let navigationExtras: NavigationExtras = {
       state : {
