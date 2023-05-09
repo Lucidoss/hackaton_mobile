@@ -18,6 +18,7 @@ export class AtelierPage {
   listAvis: any
 
   constructor(private router: Router, private activeRoute : ActivatedRoute, private storage: Storage, private http: HttpClient) {
+    // Permet de récupérer les paramètres envoyés à cette page (là les ateliers du hackathon)
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()) {
         this.ateliers = this.router.getCurrentNavigation()?.extras.state
@@ -25,6 +26,7 @@ export class AtelierPage {
       }
     })
 
+    // storage c'est un grand stockage dans toute l'appli qui reste même si on refresh la page
     this.storage.get('favoriteAteliersList').then(val => {
       if (val != null) {
         this.favoriteAtelierList = val
@@ -33,6 +35,7 @@ export class AtelierPage {
       }
     })
 
+    // storage c'est un grand stockage dans toute l'appli qui reste même si on refresh la page
     this.storage.get('idFavoriteAteliersList').then(val => {
       if (val != null) {
         this.idFavoriteList = val
@@ -46,6 +49,7 @@ export class AtelierPage {
   }
 
   ionViewWillEnter() {
+    // storage c'est un grand stockage dans toute l'appli qui reste même si on refresh la page
     this.storage.get('favoriteAteliersList').then(val => {
       if (val != null) {
         this.favoriteAtelierList = val
@@ -54,6 +58,7 @@ export class AtelierPage {
       }
     })
 
+    // storage c'est un grand stockage dans toute l'appli qui reste même si on refresh la page
     this.storage.get('idFavoriteAteliersList').then(val => {
       if (val != null) {
         this.idFavoriteList = val
@@ -100,6 +105,7 @@ export class AtelierPage {
     this.router.navigate(['/formulaire-inscription-atelier'], navigationExtras);
   }
 
+  // Permet d'aller sur la page correspondant à la route /formulaire-commentaire avec en paramètre l'atelier
   gotoFormulaireCommentaire(atelier: any) {
     let navigationExtras: NavigationExtras = {
       state : {
@@ -109,6 +115,7 @@ export class AtelierPage {
     this.router.navigate(['/formulaire-commentaire'], navigationExtras);
   }
 
+  // Permet d'aller sur la page correspondant à la route /liste-avis avec en paramètre les commentaires de l'atelier
   gotoListeAvis(atelier: any) {
     this.http.get('http://127.0.0.1:8001/api/atelier/' + atelier + '/commentaire').subscribe((data) => {
         this.listAvis = data

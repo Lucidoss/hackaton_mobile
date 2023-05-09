@@ -16,6 +16,7 @@ export class FormulaireCommentairePage {
   ateliers: any
 
   constructor(private router: Router, public formBuilder: FormBuilder, private http: HttpClient, private activeRoute : ActivatedRoute, private toastController: ToastController) {
+    // Permet de récupérer les paramètres envoyés à cette page (là l'atelier sélectioné)
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()) {
         this.ateliers = this.router.getCurrentNavigation()?.extras.state
@@ -32,21 +33,24 @@ export class FormulaireCommentairePage {
   envoieCommentaire() {
     this.submitted = true
 
-    if (!this.formCommentaire.valid) {
+    if (!this.formCommentaire.valid) { // Si le formulaire est pas valide
       this.fieldsToast()
-    } else {
+    } else { // Envoie une requête POST
       this.http.post('http://127.0.0.1:8001/api/atelier/' + this.ateliers.param1 + '/addCommentaire', this.formCommentaire.value,{
         headers : new HttpHeaders({
           'Content-Type': 'application/json'
         })
       }).subscribe(data=>{
+        // .subscribe obligatoire je sais plus pk mais changez pas
       })
+
+      // Retourne à la page d'accueil
       this.router.navigate(['/home'])
       this.successToast()
     }
   }
 
-  async successToast() {
+  async successToast() { // Toast ça marche
     const toast = await this.toastController.create({
       message: 'Le commentaire a bien été créé',
       duration: 1500,
@@ -56,7 +60,7 @@ export class FormulaireCommentairePage {
     await toast.present();
   }
 
-  async fieldsToast() {
+  async fieldsToast() { // Toast si les champs sont invalides
     const toast = await this.toastController.create({
       message: 'Champs invalides',
       duration: 3000,

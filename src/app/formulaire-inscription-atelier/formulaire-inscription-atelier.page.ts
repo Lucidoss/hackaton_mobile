@@ -16,6 +16,7 @@ export class FormulaireInscriptionAtelierPage {
   ateliers: any
 
   constructor(private router: Router, public formBuilder: FormBuilder, private http: HttpClient, private activeRoute : ActivatedRoute, private toastController: ToastController) {
+    // Permet de récupérer les paramètres envoyés à cette page (là l'atelier sélectionné et les emails de l'atelier)
     this.activeRoute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()) {
         this.ateliers = this.router.getCurrentNavigation()?.extras.state
@@ -34,23 +35,26 @@ export class FormulaireInscriptionAtelierPage {
   inscrire() {
     this.submitted = true
 
-    if (!this.formAtelier.valid) {
+    if (!this.formAtelier.valid) { // Si le formulaire est pas valide
       this.fieldsToast()
-    } else if (this.ateliers.param2.indexOf(this.formAtelier.value.email) > -1) {
+    } else if (this.ateliers.param2.indexOf(this.formAtelier.value.email) > -1) { // Check si le mail est déjà inscrit à l'atelier
       this.emailToast()
-    } else {
+    } else { // Envoie une requête POST
       this.http.post('http://127.0.0.1:8001/api/atelier/' + this.ateliers.param1, this.formAtelier.value,{
         headers : new HttpHeaders({
           'Content-Type': 'application/json'
         })
       }).subscribe(data=>{
+        // .subscribe obligatoire je sais plus pk mais changez pas
       })
+
+      // Retourne à la page d'accueil
       this.router.navigate(['/home']);
       this.successToast()
     }
   }
 
-  async successToast() {
+  async successToast() { // Toast ça marche
     const toast = await this.toastController.create({
       message: 'Inscription réussie',
       duration: 1500,
@@ -60,7 +64,7 @@ export class FormulaireInscriptionAtelierPage {
     await toast.present();
   }
 
-  async fieldsToast() {
+  async fieldsToast() { // Toast si les champs sont invalides
     const toast = await this.toastController.create({
       message: 'Veuillez remplir tout les champs',
       duration: 3000,
@@ -70,7 +74,7 @@ export class FormulaireInscriptionAtelierPage {
     await toast.present();
   }
 
-  async emailToast() {
+  async emailToast() { // Toast email déjà inscrit
     const toast = await this.toastController.create({
       message: 'Cet email est déjà inscrit',
       duration: 3000,

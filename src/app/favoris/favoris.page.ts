@@ -21,6 +21,7 @@ export class FavorisPage {
   }
 
   ionViewWillEnter() {
+    // storage c'est un grand stockage dans toute l'appli qui reste même si on refresh la page
     this.storage.get('favoriteAteliersList').then(val => {
       if (val != null) {
         this.favoriteAtelierList = val
@@ -29,6 +30,7 @@ export class FavorisPage {
       }
     })
 
+    // storage c'est un grand stockage dans toute l'appli qui reste même si on refresh la page
     this.storage.get('idFavoriteAteliersList').then(val => {
       if (val != null) {
         this.idFavoriteList = val
@@ -63,6 +65,7 @@ export class FavorisPage {
     return date
   }
 
+  // Permet d'aller sur la page correspondant à la route /formulaire-inscription-atelier avec en paramètre l'atelier et les emails de l'atelier
   gotoFormulaireInscriptionAtelier(atelier: any, email: any) {
     let navigationExtras: NavigationExtras = {
       state : {
@@ -73,6 +76,7 @@ export class FavorisPage {
     this.router.navigate(['/formulaire-inscription-atelier'], navigationExtras);
   }
 
+  // Permet d'aller sur la page correspondant à la route /formulaire-commentaire avec en paramètre l'atelier
   gotoFormulaireCommentaire(atelier: any) {
     let navigationExtras: NavigationExtras = {
       state : {
@@ -82,6 +86,7 @@ export class FavorisPage {
     this.router.navigate(['/formulaire-commentaire'], navigationExtras);
   }
 
+  // Permet d'aller sur la page correspondant à la route /liste-avis avec en paramètre les commentaires de l'atelier
   gotoListeAvis(atelier: any) {
     this.http.get('http://127.0.0.1:8001/api/atelier/' + atelier + '/commentaire').subscribe((data) => {
         this.listAvis = data
